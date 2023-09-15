@@ -1,28 +1,10 @@
 import streamlit as st
 
 # Create a sidebar with links to the different sections of the portal.
-sidebar = st.sidebar()
-sidebar.title("Placement Portal")
-sidebar.link("Student Section")
-sidebar.link("Placement Section")
-sidebar.link("Company Section")
+with st.sidebar:
+    st.title("AutoML")
+    st.info("By Akshith Chowdary")
+    st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnxi_YIKmP9dAESxenlz-fl5En_rFFSgdYtw&usqp=CAU", width=250)
+    choose = st.radio("Options", ['Upload', 'Profiling', 'Model Building', 'Download Model'])
+    st.info("This application will help you to explore your data, build and train a ML Model, save your model.")
 
-# Create a main content area.
-main_content = st.container()
-main_content.title("Student Section")
-
-# Add a form for students to register for placement.
-registration_form = main_content.form("Registration Form")
-registration_form.text("Name")
-registration_form.text("Email")
-registration_form.text("Phone Number")
-registration_form.text("Resume")
-registration_form.submit()
-
-# Add a list of job openings.
-job_openings = main_content.container()
-job_openings.title("Job Openings")
-for job_opening in job_openings:
-    job_openings.text(job_opening["title"])
-    job_openings.text(job_opening["description"])
-    job_openings.link("Apply Now") 
